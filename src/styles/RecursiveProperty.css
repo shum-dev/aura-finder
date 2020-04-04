@@ -1,0 +1,18 @@
+.RecursiveProperty {
+  padding-left: 30px;
+  line-height: 2em;
+}
+
+.RecursiveProperty-row > span, .RecursiveProperty > span {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: wheat;
+  margin-right: 8px;
+}
+
+.RecursiveProperty-row {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

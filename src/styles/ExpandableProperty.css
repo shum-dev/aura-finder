@@ -1,0 +1,19 @@
+.ExpandableProperty {
+  position: relative;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.ExpandableProperty:hover {
+  cursor: pointer;
+}
+
+.ExpandableProperty span {
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  font-size: 1.3em;
+  transform: translateY(-50%);
+  color:
+}

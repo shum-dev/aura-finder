@@ -1,0 +1,11 @@
+.RepoPage {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.RepoPage-headline {
+  text-align: center;
+  font-size: calc(10px vmin+ 5vmin);
+}
