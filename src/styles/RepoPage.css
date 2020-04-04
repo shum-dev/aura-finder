@@ -7,5 +7,5 @@
 
 .RepoPage-headline {
   text-align: center;
-  font-size: calc(10px vmin+ 5vmin);
+  font-size: calc(10px + 5vmin);
 }
