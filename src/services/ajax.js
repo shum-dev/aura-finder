@@ -1,14 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
-axios.defaults.baseURL = 'https://api.github.com';
-axios.defaults.headers.common.Accept = 'github.v3';
+axios.defaults.baseURL = "https://api.github.com";
+axios.defaults.headers.common.Accept = "github.v3";
 
 function apiCall(method, path) {
-  return new Promise((resolve, reject) => {
-    axios[method](path)
-      .then((res) => resolve(res.data))
-      .catch((err) => reject(err.message));
-  });
+  return axios[method](path)
+    .then((res) => res)
+    .catch((err) => err.message);
 }
 
 export default apiCall;

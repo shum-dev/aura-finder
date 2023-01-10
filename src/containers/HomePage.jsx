@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { fetchRepos, resetReposList } from '../store/actions/repos';
-import { setError, removeError } from '../store/actions/error';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { fetchRepos, resetReposList } from "../store/actions/repos";
+import { setError, removeError } from "../store/actions/error";
 
-import '../styles/HomePage.css';
+import "../styles/HomePage.css";
 
 const HomePage = () => {
   const reposList = useSelector((state) => state.repos);
   const error = useSelector((state) => state.error);
 
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const [inLoad, setInLoad] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -24,7 +24,7 @@ const HomePage = () => {
       .then(() => {
         dispatch(removeError());
         setInLoad(false);
-        setUserName('');
+        setUserName("");
       })
       .catch((err) => {
         dispatch(setError(err));
@@ -44,24 +44,35 @@ const HomePage = () => {
       <form className="HomePage-form" onSubmit={handleSubmit}>
         <label htmlFor="username"> Enter an existing Github username:</label>
         <div>
-          <input id="username" type="text" onChange={(e) => setUserName(e.target.value)} value={userName} autoComplete="off" placeholder="e.g: egorshum, getify etc." />
-          <button type="submit" disabled={!userName}>Submit</button>
-          { error && <div className="HomePage-error">{error}</div>}
+          <input
+            id="username"
+            type="text"
+            onChange={(e) => setUserName(e.target.value)}
+            value={userName}
+            autoComplete="off"
+            placeholder="e.g: shum-dev, c9s etc."
+          />
+          <button type="submit" disabled={!userName}>
+            Submit
+          </button>
+          {error && <div className="HomePage-error">{error}</div>}
         </div>
       </form>
 
-
       <ul className="HomePage-list">
-        { reposList.length ? (
+        {Boolean(reposList.length) &&
           reposList.map((item) => (
             <li key={item.id} className="HomePage-li">
-              <a href={`/repos/${item.id}`} onClick={handleClick.bind(this, item.id)}>{item.name}</a>
+              <a
+                href={`/repos/${item.id}`}
+                onClick={handleClick.bind(this, item.id)}
+              >
+                {item.name}
+              </a>
               <div>{item.description}</div>
             </li>
-          ))
-        ) : (
-          inLoad && <p>Loading...</p>
-        )}
+          ))}
+        {inLoad && <p>Loading...</p>}
       </ul>
     </div>
   );
