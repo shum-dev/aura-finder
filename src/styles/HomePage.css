@@ -1,6 +1,5 @@
 .HomePage {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -22,9 +21,9 @@
 .HomePage-li a {
   color: white;
   text-decoration: none;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
   min-width: 200px;
-  width:200px;
+  width: 200px;
   text-transform: uppercase;
   transform-origin: left bottom;
   text-overflow: ellipsis;
@@ -39,12 +38,12 @@
 .HomePage-li div {
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 .HomePage-list {
   margin: 0;
-  padding: 0 0 0 30px;
+  padding: 0 0 0 10px;
   list-style: none;
+  overflow-y: auto;
 }
 
 .HomePage-form {
@@ -61,14 +60,37 @@
   margin-bottom: 10px;
 }
 
+.HomePage-form div {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+@media (min-width: 405px) {
+  .HomePage-form div {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.HomePage-form div > * {
+  flex-shrink: 0;
+  flex-grow: 1;
+  flex-basis: 100%;
+}
+
 .HomePage-form input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid wheat;
-  margin-right: 5px;
   color: white;
   font-size: 1.5em;
-  padding: 3px
+  padding: 3px;
+  max-width: 298px;
 }
 
 .HomePage-form input:focus {
@@ -81,26 +103,24 @@
   border: 1px solid white;
   padding: 0;
   width: 100px;
-  height: 90%;
+  min-height: 1.5rem;
   border-radius: 6px;
   box-sizing: border-box;
   cursor: pointer;
-  transition: all .15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   text-transform: uppercase;
+  max-width: 100px;
 }
+
 .HomePage-form button:hover:not(:disabled) {
   background-color: white;
-  color: #282c34
+  color: #282c34;
 }
 
 .HomePage-form button:disabled {
   color: black;
   border-color: black;
   cursor: not-allowed;
-}
-
-.HomePage-form div {
-  height: 32px;
 }
 
 .HomePage-error {

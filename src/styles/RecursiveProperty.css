@@ -13,6 +13,5 @@
 .RecursiveProperty-row {
   display: flex;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
