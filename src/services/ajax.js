@@ -1,7 +1,7 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "https://api.github.com";
-axios.defaults.headers.common.Accept = "github.v3";
+axios.defaults.headers.common["X-GitHub-Api-Version"] = "2022-11-28";
 
 function apiCall(method, path) {
   return axios[method](path)
